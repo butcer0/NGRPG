@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterOptions } from '../../models/character-options';
-import { isUndefined } from 'util';
 
 const DEFAULTSELECTIONTEXT: string = "--Choose--";
 
