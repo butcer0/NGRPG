@@ -16,7 +16,7 @@ export class GameControllerService {
   actionDelay: number = 1500;
   
   heroParty: Hero[] = [];
-  partyInventory: (Weapon | Armor)[];
+  partyInventory: (Weapon | Armor)[] = [];
   availableHeroes: Hero[] = [];
   enemyParty: Monster[] = this.currentChapter.enemyParty;
 
