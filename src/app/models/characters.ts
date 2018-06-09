@@ -1,4 +1,5 @@
 import { RaceOptions, ClassOptions, GenderOptions } from './character-options';
+import { url } from 'inspector';
 
 export class Armor {
     constructor(public name: string
@@ -153,5 +154,103 @@ export class Hero extends BaseCharacter {
     }
 }
 
+export class Warrior extends Hero {
+    constructor(name, gender, race, level, health, skills, weapon, armor) {
+        super(name, gender, race, level, health, skills, weapon, armor);
+        
+        this.characterRole = ClassOptions.warrior;
+        this.skills.attack += 2;
+        this.skills.persuade++;
+        this.skills.sneak--;
+        this.skills.intelligence--;
+        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/warrior-male.png":"./assets/images/heroes/warrior-female.png" ;
+    }
 
+    levelUp(): void {
+        this.maxHealth = Math.floor(Math.random() * 10) + 1;
+        this.currentHealth = this.maxHealth;
+        super.levelUp();
+    }
+}
 
+export class Ranger extends Hero {
+    constructor(name, gender, race, level, health, skills, weapon, armor) {
+        super(name, gender, race, level, health, skills, weapon, armor);
+        this.characterRole = ClassOptions.ranger;
+        this.skills.sneak += 2;
+        this.skills.intelligence++;
+        this.skills.persuade--;
+        this.skills.attack--;
+        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/ranger-male.png":"./assets/images/heroes/ranger-female.png" ;
+    }
+
+    levelUp(): void {
+        this.maxHealth = Math.floor(Math.random() * 8) + 1;
+        this.currentHealth = this.maxHealth;
+        super.levelUp();
+    }
+}
+
+export class Rogue extends Hero {
+    constructor(name, gender, race, level, health, skills, weapon, armor) {
+        super(name, gender, race, level, health, skills, weapon, armor);
+        this.characterRole = ClassOptions.rogue;
+        this.skills.sneak += 2;
+        this.skills.attack++;
+        this.skills.intelligence--;
+        this.skills.persuade--;
+        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/ninja-male.png":"./assets/images/heroes/ninja-female.png" ;
+    }
+
+    levelUp(): void {
+        this.maxHealth = Math.floor(Math.random() * 8) + 1;
+        this.currentHealth = this.maxHealth;
+        super.levelUp();
+    }
+}
+
+export class Priest extends Hero {
+    constructor(name, gender, race, level, health, skills, weapon, armor) {
+        super(name, gender, race, level, health, skills, weapon, armor);
+        this.characterRole = ClassOptions.priest;
+        this.skills.intelligence += 2;
+        this.skills.persuade++;
+        this.skills.sneak--;
+        this.skills.attack--;
+        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/healer-male.png":"./assets/images/heroes/healer-female.png" ;
+    }
+
+    levelUp(): void {
+        this.maxHealth = Math.floor(Math.random() * 6) + 1;
+        this.currentHealth = this.maxHealth;
+        super.levelUp();
+    }
+}
+
+export const checkRace = (hero: Hero) => {
+    switch (hero.race) {
+        case RaceOptions.human:
+            hero.skills.persuade += 2;
+            hero.skills.intelligence++;
+            hero.skills.sneak -= 2;
+            break;
+        case RaceOptions.elf:
+            hero.skills.intelligence += 2;
+            hero.skills.sneak++;
+            hero.skills.persuade -= 2;
+            break;
+        case RaceOptions.dwarf:
+            hero.skills.attack += 2;
+            hero.skills.persuade++;
+            hero.skills.intelligence -= 2;
+            break;
+        case RaceOptions.halfling:
+            hero.skills.sneak += 2;
+            hero.skills.attack++;
+            hero.skills.persuade -= 2;
+            break;
+        default:
+            break;
+        
+    }
+}
