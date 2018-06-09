@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterOptions } from '../../models/character-options';
+import { GameControllerService } from '../../services/game-controller.service';
 
 const DEFAULTSELECTIONTEXT: string = "--Choose--";
 
@@ -22,7 +23,9 @@ export class CharacterCreationComponent implements OnInit {
   classes = CharacterOptions.classes;
   genders = CharacterOptions.genders;
 
-  constructor() { }
+  constructor(private gameControllerService: GameControllerService) {
+    
+   }
 
   ngOnInit() {
   }
@@ -60,11 +63,7 @@ export class CharacterCreationComponent implements OnInit {
       return;
     }
 
-    console.log(this.character);
+    this.gameControllerService.setMainCharacter(this.character)
   }
-
-  
-
-  
 
 }
