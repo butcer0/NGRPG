@@ -20,7 +20,9 @@ export class GameControllerService {
   availableHeroes: Hero[] = [];
   enemyParty: Monster[] = this.currentChapter.enemyParty;
 
-  setMainCharacter(character: {name: string, class: ClassOptions, race: RaceOptions, gender: GenderOptions}) {
+  // setMainCharacter(character: {name: string, class: ClassOptions, race: RaceOptions, gender: GenderOptions}) {
+  //Erik - 6/9/2018 Removed Type for character-creation to not need character-options reference
+  setMainCharacter(character) {
     switch(character.class) {
       case ClassOptions.warrior:
         this.mainCharacter = new Warrior(character.name, character.gender, character.race, 1, 10, {attack: 0, sneak: 0, persuade: 0, intelligence: 0}, new Weapon("Knife", 1,4), new Armor("Clothes", 0));

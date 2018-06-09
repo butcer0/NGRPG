@@ -23,9 +23,7 @@ export class CharacterCreationComponent implements OnInit {
   classes = CharacterOptions.classes;
   genders = CharacterOptions.genders;
 
-  constructor(private gameControllerService: GameControllerService) {
-    
-   }
+  constructor(private gameControllerService: GameControllerService) { }
 
   ngOnInit() {
   }
@@ -58,12 +56,11 @@ export class CharacterCreationComponent implements OnInit {
   }
 
   createCharacter():void {
-    if(!this.characterComplete)
-    {
+    if(!this.characterComplete) {
       return;
     }
 
-    this.gameControllerService.setMainCharacter(this.character)
+    this.gameControllerService.setMainCharacter(this.character);
   }
 
 }

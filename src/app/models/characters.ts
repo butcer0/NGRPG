@@ -1,5 +1,4 @@
 import { RaceOptions, ClassOptions, GenderOptions } from './character-options';
-import { url } from 'inspector';
 
 export class Armor {
     constructor(public name: string
