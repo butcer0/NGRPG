@@ -1,25 +1,5 @@
 import { RaceOptions, ClassOptions, GenderOptions } from './character-options';
 
-//Erik - 6/9/2018 use constructor to create instance variables
-// export class Armor {
-//     constructor(name: string, attackBarrierBonus: number) {
-//         this.name = name;
-//         this.attackBarrierBonus = attackBarrierBonus;
-//     }
-
-//     name: string;
-//     attackBarrierBonus: number;
-
-// }
-
-// export class Weapon {
-//     constructor(name: string, minDamage: number, maxDamage: number) {
-//         this.name = name;
-//         this.minDamage = minDamage;
-//         this.maxDamage = maxDamage;
-//     }
-// }
-
 export class Armor {
     constructor(public name: string
                 ,public attackBarrierBonus: number) { }
@@ -172,5 +152,6 @@ export class Hero extends BaseCharacter {
         this.turnsUntilSpecialAvailableAgain = 0;
     }
 }
+
 
 
