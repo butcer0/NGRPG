@@ -4,7 +4,7 @@
       <h1>Races</h1>
       <ul>
         <li *ngFor="let race of races" (click)="changeRace(race)" [class.active]="character.race === race" class="mb-3 py-2">
-            {{race}}
+          {{race}}
         </li>
       </ul>
     </div>
@@ -19,7 +19,7 @@
           <i class="fas fa-mars"></i>
         </div>
         <div class="gender-button ml-1" [class.active]="character.gender === 'Female'" (click)="changeGender('Female')">
-            <i class="fas fa-venus"></i>
+          <i class="fas fa-venus"></i>
         </div>
       </div>
       <h2>Name</h2>
@@ -27,12 +27,12 @@
       <button class="btn continue-button px-5 py-2 mx-auto" [class.disabled]="!characterComplete" (click)="createCharacter()">Create Character</button>
     </div>
     <div class="col-3 sidebar p-3 text-center">
-        <h1>Classes</h1>
-        <ul>
-          <li *ngFor="let class of classes" (click)="changeClass(class)" [class.active]="character.class === class" class="mb-3 py-2">
-              {{class}}
-          </li>
-        </ul>
+      <h1>Classes</h1>
+      <ul>
+        <li *ngFor="let class of classes" (click)="changeClass(class)" [class.active]="character.class === class" class="mb-3 py-2">
+          {{class}}
+        </li>
+      </ul>
     </div>
   </div>
 </div>

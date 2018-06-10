@@ -2,20 +2,20 @@ import { RaceOptions, ClassOptions, GenderOptions } from './character-options';
 
 export class Armor {
     constructor(public name: string
-                ,public attackBarrierBonus: number) { }
+        , public attackBarrierBonus: number) { }
 }
 
 export class Weapon {
     constructor(public name: string
-                , public minDamage: number
-                , public maxDamage: number) { }
+        , public minDamage: number
+        , public maxDamage: number) { }
 }
 
 export enum CharacterSkills {
     attack = "attack",
     sneak = "sneak",
     persuade = "persuade",
-    intelligence = "intelligence" 
+    intelligence = "intelligence"
 }
 
 export enum FightOptions {
@@ -56,12 +56,12 @@ export class BaseCharacter {
     equippedWeapon: Weapon;
     equippedArmor: Armor;
 
-    constructor(name: string, health: number, skills = {attack: 0, sneak: 0, persuade: 0, intelligence: 0}) {
+    constructor(name: string, health: number, skills = { attack: 0, sneak: 0, persuade: 0, intelligence: 0 }) {
         this.name = name,
-        this.maxHealth = health,
-        this.currentHealth =  health,
-        this.skills = skills,
-        this.isIncapacitated = false;
+            this.maxHealth = health,
+            this.currentHealth = health,
+            this.skills = skills,
+            this.isIncapacitated = false;
         this.barriers = {
             attack: 10,
             sneak: 10,
@@ -93,7 +93,7 @@ export class Monster extends BaseCharacter {
     isStrongPoisoned: boolean = false;
     hasTakenPoisonDamageThisTurn: boolean = false;
 
-    constructor(name, health, skills, barriers: {attack: number, sneak: number, persuade: number}, minDamage, maxDamage, spriteUrl) {
+    constructor(name, health, skills, barriers: { attack: number, sneak: number, persuade: number }, minDamage, maxDamage, spriteUrl) {
         super(name, health, skills);
 
         this.barriers = barriers;
@@ -129,13 +129,13 @@ export class Hero extends BaseCharacter {
         this.experience -= ExperienceToLevel[this.level];
         this.level++;
         this.availableSkillPoints += 2;
-        if(this.experience >= ExperienceToLevel[this.level]) {
+        if (this.experience >= ExperienceToLevel[this.level]) {
             this.levelUp();
         }
     }
 
     equipNewArmor(armor: Armor): void {
-        if(this.equippedArmor) {
+        if (this.equippedArmor) {
             this.barriers.attack -= this.equippedArmor.attackBarrierBonus;
         }
         this.equippedArmor = armor;
@@ -156,13 +156,13 @@ export class Hero extends BaseCharacter {
 export class Warrior extends Hero {
     constructor(name, gender, race, level, health, skills, weapon, armor) {
         super(name, gender, race, level, health, skills, weapon, armor);
-        
+
         this.characterRole = ClassOptions.warrior;
         this.skills.attack += 2;
         this.skills.persuade++;
         this.skills.sneak--;
         this.skills.intelligence--;
-        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/warrior-male.png":"./assets/images/heroes/warrior-female.png" ;
+        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/warrior-male.png" : "./assets/images/heroes/warrior-female.png";
     }
 
     levelUp(): void {
@@ -180,7 +180,7 @@ export class Ranger extends Hero {
         this.skills.intelligence++;
         this.skills.persuade--;
         this.skills.attack--;
-        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/ranger-male.png":"./assets/images/heroes/ranger-female.png" ;
+        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/ranger-male.png" : "./assets/images/heroes/ranger-female.png";
     }
 
     levelUp(): void {
@@ -198,7 +198,7 @@ export class Rogue extends Hero {
         this.skills.attack++;
         this.skills.intelligence--;
         this.skills.persuade--;
-        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/ninja-male.png":"./assets/images/heroes/ninja-female.png" ;
+        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/ninja-male.png" : "./assets/images/heroes/ninja-female.png";
     }
 
     levelUp(): void {
@@ -216,7 +216,7 @@ export class Priest extends Hero {
         this.skills.persuade++;
         this.skills.sneak--;
         this.skills.attack--;
-        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/healer-male.png":"./assets/images/heroes/healer-female.png" ;
+        this.spriteUrl = this.gender === GenderOptions.male ? "./assets/images/heroes/healer-male.png" : "./assets/images/heroes/healer-female.png";
     }
 
     levelUp(): void {
@@ -250,6 +250,6 @@ export const checkRace = (hero: Hero) => {
             break;
         default:
             break;
-        
+
     }
 }
