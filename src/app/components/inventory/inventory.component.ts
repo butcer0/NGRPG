@@ -9,7 +9,7 @@ import { Hero, Weapon, Armor, CharacterSkills, ExperienceToLevel } from '../../m
 })
 export class InventoryComponent implements OnInit {
 
-  constructor(private gameControllerService: GameControllerService) { debugger }
+  constructor(private gameControllerService: GameControllerService) {  }
 
   ngOnInit() {
   }
