@@ -12,8 +12,8 @@
       </div>
     </div>
     <div class="col-6 d-flex flex-column justify-content-center">
-        <button *ngIf="!showNextChapterButton && !showGameOverButton" class="btn w-75 mx-auto action-option" [class.selected]="selectedAction === _fightOptions.attack" (click)="selectOption(_fightOption.attack)">Attack</button>
-        <button *ngIf="!showNextChapterButton && !showGameOverButton" class="btn w-75 mx-auto action-option" [class.selected]="selectedAction === _fightOptions.specialAttack" (click)="selectOption(_fightOption.specialAttack)">Special Attack</button>
+        <button *ngIf="!showNextChapterButton && !showGameOverButton" class="btn w-75 mb-5 mx-auto action-option" [class.selected]="selectedAction === _fightOptions.attack" (click)="selectOption(_fightOptions.attack)">Attack</button>
+        <button *ngIf="!showNextChapterButton && !showGameOverButton" class="btn w-75 mb-5 mx-auto action-option" [class.selected]="selectedAction === _fightOptions.specialAttack" (click)="selectOption(_fightOptions.specialAttack)">Special Attack</button>
         <button *ngIf="showNextChapterButton" class="btn w-75 mb-5 mx-auto action-option" (click)="nextChapter()">Next Chapter</button>
         <button *ngIf="showGameOverButton" class="btn w-75 mb-5 mx-auto action-option" (click)="gameOver()">Game Over</button>
         <div class="message-box w-75 mx-auto">
