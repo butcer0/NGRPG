@@ -90,7 +90,7 @@ export class BaseCharacter {
 export class Monster extends BaseCharacter {
     isTrapped: boolean = false;
     poisonStacks: number = 0;
-    isStrongPoison: boolean = false;
+    isStrongPoisoned: boolean = false;
     hasTakenPoisonDamageThisTurn: boolean = false;
 
     constructor(name, health, skills, barriers: {attack: number, sneak: number, persuade: number}, minDamage, maxDamage, spriteUrl) {
